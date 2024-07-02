@@ -1,5 +1,7 @@
 package br.com.sgfirst.sgfirst.funcionario.api;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.sgfirst.sgfirst.funcionario.service.FuncionarioService;
@@ -17,25 +19,19 @@ public class FuncionarioController implements FuncionarioAPI {
 		FuncionarioResponse funcionarioCriado = FuncionarioService.criaFuncionario(FuncionarioRequest);
 		return funcionarioCriado;
 	}
+
+	@Override
+	public List<FuncionarioListResponse> getTodosFuncionarios() {
+		List<FuncionarioListResponse> funcionarios = FuncionarioService.buscaTodosFuncionarios();
+		return funcionarios;
+	}
 	/*
 	 * 
 
-	private final FuncionarioService FuncionarioService;
-	
 	@Override
-	public FuncionarioResponse postFuncionario(FuncionarioRequest FuncionarioRequest){
-		log.info("[inicia] FuncionarioController -  postFuncionario");
-		FuncionarioResponse FuncionarioCriado = FuncionarioService.criaFuncionario(FuncionarioRequest);
-		log.info("[finaliza] FuncionarioController -  postFuncionario");
-		return FuncionarioCriado;
-	}
-
-	@Override
-	public List<FuncionarioListResponse> getTodosFuncionario() {
-		log.info("[inicia] FuncionarioController -  getTodosFuncionario");
-		List<FuncionarioListResponse> Funcionarios = FuncionarioService.buscaTodosFuncionarios();
-		log.info("[finaliza] FuncionarioController -  getTodosFuncionario");
-		return Funcionarios;
+	public List<FuncionarioListResponse> getTodosFuncionarios() {
+		List<FuncionarioListResponse> funcionarios = FuncionarioService.buscaTodosFuncionarios();
+		return funcionarios;
 	}
 
 	@Override

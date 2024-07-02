@@ -1,6 +1,9 @@
 package br.com.sgfirst.sgfirst.funcionario.api;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,18 +20,18 @@ public interface FuncionarioAPI {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	FuncionarioResponse postFuncionario(@Valid @RequestBody FuncionarioRequest FuncionarioRequest);
 	
+	@GetMapping
+	@ResponseStatus(code = HttpStatus.OK)
+	List<FuncionarioListResponse> getTodosFuncionarios();
 	/*
 	 * 
 @RestController
 @RequestMapping("/funcionario")
 public interface FuncionarioAPI {
-	@PostMapping
-	@ResponseStatus(code = HttpStatus.CREATED)
-	FuncionarioResponse postFuncionario(@Valid @RequestBody FuncionarioRequest FuncionarioRequest);
-
+	
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK)
-	List<FuncionarioListResponse> getTodosFuncionario();
+	List<FuncionarioListResponse> getTodosFuncionarios();
 
 	@GetMapping(value = "/{idFuncionario}")
 	@ResponseStatus(code = HttpStatus.OK)
