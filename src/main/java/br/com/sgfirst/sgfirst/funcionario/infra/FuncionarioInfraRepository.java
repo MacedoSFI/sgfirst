@@ -1,11 +1,14 @@
 package br.com.sgfirst.sgfirst.funcionario.infra;
 
 import java.util.List;
+import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import br.com.sgfirst.sgfirst.funcionario.domain.Funcionario;
 import br.com.sgfirst.sgfirst.funcionario.repository.FuncionarioRepository;
+import br.com.sgfirst.sgfirst.handler.APIException;
 import lombok.RequiredArgsConstructor;
 
 @Repository
@@ -25,15 +28,15 @@ public class FuncionarioInfraRepository implements FuncionarioRepository {
 		List<Funcionario> funcionarios = funcionarioSpringDataJPARepository.findAll();
  		return funcionarios;
 	}
-	/*
-	 * @Override
-	public List<Cliente> buscaTodosClientes() {
-		log.info("[incia] ClienteInfraRepository - buscaTodosClientes");
-		List<Cliente> todosClientes = clienteSpringDataJPARepository.findAll();
-		log.info("[finaliza] ClienteInfraRepository - buscaTodosClientes");
-		
-		return todosClientes;
+
+	@Override
+	public Funcionario buscaFuncionarioAtravesId(UUID idFuncionario) {
+		Funcionario funcionario = funcionarioSpringDataJPARepository.findById(idFuncionario)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Funcionário não encontrado!"));
+		return funcionario;
 	}
+	/*
+	 * 
 	 */
 
 }

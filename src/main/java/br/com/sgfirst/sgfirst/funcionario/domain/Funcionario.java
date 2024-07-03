@@ -2,6 +2,7 @@ package br.com.sgfirst.sgfirst.funcionario.domain;
 
 import java.util.UUID;
 
+import br.com.sgfirst.sgfirst.funcionario.api.FuncionarioAlteracaoRequest;
 import br.com.sgfirst.sgfirst.funcionario.api.FuncionarioRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -41,6 +42,15 @@ public class Funcionario {
 		this.salario = funcionarioRequest.getSalario();
 		this.telefone = funcionarioRequest.getTelefone();
 		this.endereco = funcionarioRequest.getEndereco();
+	}
+
+
+	public void altera(FuncionarioAlteracaoRequest funcionarioAlteracaoRequest) {
+		this.nomeCompleto = funcionarioAlteracaoRequest.getNomeCompleto();
+		this.designacao = funcionarioAlteracaoRequest.getDesignacao();
+		this.salario = funcionarioAlteracaoRequest.getSalario();
+		this.telefone = funcionarioAlteracaoRequest.getTelefone();
+		this.endereco = funcionarioAlteracaoRequest.getEndereco();
 	}
 
 }

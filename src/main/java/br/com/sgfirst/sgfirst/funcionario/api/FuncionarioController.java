@@ -1,14 +1,17 @@
 package br.com.sgfirst.sgfirst.funcionario.api;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.sgfirst.sgfirst.funcionario.service.FuncionarioService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 
 @RestController
-//@Log4j2
+@Log4j2
 @RequiredArgsConstructor
 public class FuncionarioController implements FuncionarioAPI {
 	
@@ -24,6 +27,12 @@ public class FuncionarioController implements FuncionarioAPI {
 	public List<FuncionarioListResponse> getTodosFuncionarios() {
 		List<FuncionarioListResponse> funcionarios = FuncionarioService.buscaTodosFuncionarios();
 		return funcionarios;
+	}
+
+	@Override
+	public void patchAlteraFuncionario(UUID idFuncionario,
+			@Valid FuncionarioAlteracaoRequest FuncionarioAlteracaoRequest) {
+		FuncionarioService.patchAlteraFuncionario(idFuncionario, FuncionarioAlteracaoRequest);
 	}
 	/*
 	 * 
@@ -49,14 +58,6 @@ public class FuncionarioController implements FuncionarioAPI {
 		log.info("[idCleinte] {}", idFuncionario);
 		FuncionarioService.deletaFuncionarioAtravesId(idFuncionario);
 		log.info("[finaliza] FuncionarioController -  DeletaFuncionarioAtravesId");
-	}
-
-	@Override
-	public void patchAlteraFuncionario(UUID idFuncionario, @Valid FuncionarioAlteracaoRequest FuncionarioAlteracaoRequest) {
-		log.info("[inicia] FuncionarioController -  patchAlteraFuncionario");
-		log.info("[idFuncionario] {}", idFuncionario);
-		FuncionarioService.patchAlteraFuncionario(idFuncionario, FuncionarioAlteracaoRequest);
-		log.info("[finaliza] FuncionarioController -  patchAlteraFuncionario");
 	}
 
 	 */
