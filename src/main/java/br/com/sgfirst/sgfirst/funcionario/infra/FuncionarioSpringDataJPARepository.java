@@ -8,5 +8,4 @@ import br.com.sgfirst.sgfirst.funcionario.domain.Funcionario;
 
 public interface FuncionarioSpringDataJPARepository extends JpaRepository<Funcionario, UUID>{
 
-	
 }

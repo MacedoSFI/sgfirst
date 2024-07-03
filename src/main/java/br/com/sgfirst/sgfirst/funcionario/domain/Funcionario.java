@@ -26,16 +26,11 @@ public class Funcionario {
 
 	@NotBlank
 	private String nomeCompleto;
-	
 	private String designacao;
-	
 	private Double salario;
-	
 	private String telefone;
-
 	private String endereco;
 	
-
 	public Funcionario(FuncionarioRequest funcionarioRequest) {
 		this.nomeCompleto = funcionarioRequest.getNomeCompleto();
 		this.designacao = funcionarioRequest.getDesignacao();
@@ -44,7 +39,6 @@ public class Funcionario {
 		this.endereco = funcionarioRequest.getEndereco();
 	}
 
-
 	public void altera(FuncionarioAlteracaoRequest funcionarioAlteracaoRequest) {
 		this.nomeCompleto = funcionarioAlteracaoRequest.getNomeCompleto();
 		this.designacao = funcionarioAlteracaoRequest.getDesignacao();
@@ -52,5 +46,4 @@ public class Funcionario {
 		this.telefone = funcionarioAlteracaoRequest.getTelefone();
 		this.endereco = funcionarioAlteracaoRequest.getEndereco();
 	}
-
 }

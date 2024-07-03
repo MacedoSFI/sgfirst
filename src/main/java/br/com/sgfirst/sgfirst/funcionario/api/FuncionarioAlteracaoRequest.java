@@ -10,5 +10,4 @@ public class FuncionarioAlteracaoRequest {
 	private Double salario;
 	private String telefone;
 	private String endereco;
-
 }

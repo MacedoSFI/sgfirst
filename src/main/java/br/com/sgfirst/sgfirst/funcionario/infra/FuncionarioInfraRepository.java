@@ -35,8 +35,9 @@ public class FuncionarioInfraRepository implements FuncionarioRepository {
 				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Funcionário não encontrado!"));
 		return funcionario;
 	}
-	/*
-	 * 
-	 */
 
+	@Override
+	public void deletaFuncionario(Funcionario funcionario) {
+		funcionarioSpringDataJPARepository.delete(funcionario);		
+	}
 }

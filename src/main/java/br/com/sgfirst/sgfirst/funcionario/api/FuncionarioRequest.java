@@ -8,14 +8,8 @@ public class FuncionarioRequest {
 
 	@NotBlank
 	private String nomeCompleto;
-	
 	private String designacao;
-	
 	private Double salario;
-	
 	private String telefone;
-
 	private String endereco;
-	
-
 }

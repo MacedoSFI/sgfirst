@@ -38,4 +38,10 @@ public class FuncionarioApplicationService implements FuncionarioService {
 		funcionario.altera(funcionarioAlteracaoRequest);
 		funcionarioRepository.salva(funcionario);
 	}
+
+	@Override
+	public void deletaFuncionarioAtravesId(UUID idFuncionario) {
+		Funcionario funcionario = funcionarioRepository.buscaFuncionarioAtravesId(idFuncionario);
+		funcionarioRepository.deletaFuncionario(funcionario);	
+	}
 }

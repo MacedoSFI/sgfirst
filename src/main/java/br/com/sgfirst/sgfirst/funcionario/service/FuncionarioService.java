@@ -15,14 +15,6 @@ public interface FuncionarioService {
 	List<FuncionarioListResponse> buscaTodosFuncionarios();
 
 	void patchAlteraFuncionario(UUID idFuncionario, FuncionarioAlteracaoRequest funcionarioAlteracaoRequest);
-	
-	/*
-	 * 
-	ClienteDetalhadoResponse buscaClienteAtravesId(UUID idCliente);
-	
-	void deletaClienteAtravesId(UUID idCliente);
 
-	void patchAlteraCliente(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest);
-	 */
-
+	void deletaFuncionarioAtravesId(UUID idFuncionario);
 }
